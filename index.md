@@ -1,9 +1,9 @@
-﻿# Project Name/Title Goes Here
-This will serve as a brief description of your project. Limit this to three sentences because it can become overly long at that point. This copy should draw the user in and make she/him want to read more.
+﻿# LED Matrix Audio Visualizer
+I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an FFT from live sound frequencies taken from a microphone. The entire system is powered through an AC power outlet which allows the user to always display sound data without replacing batteries. The system is also speed-oriented and quickly graphs sound data as it happens.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Firstname Lastname | Current Highschool | Electrical Engineering | Incoming Senior
+| Charles Shireman | Birch Wathen Lenox School | Computer Science | Incoming Senior
 
 ![Headstone Image](https://bluestampengineering.com/wp-content/uploads/2016/05/improve.jpg)
   
@@ -19,6 +19,6 @@ My final milestone is the increased reliability and accuracy of my robot. I amel
 # First Milestone
   
 
-My first milestone was setting up and hooking up the Raspberry Pi and all the necessary components onto my tv. The heatsinks, the sd card, and the controller were all added to ensure that the Raspberry Pi was working. Instead of the Raspberry Pi Os software, I had to first download a different software called Retro Pie. With Retro Pie, I needed to download an Imager for Raspberry Pi. Raspberry Pi Imager automatically downloads a list of the latest versions of Raspbian supported by the Raspberry Pi. Raspbian is the typical Raspberry Pi Os software, the one I needed on the Raspberry Pi was Retro Pi. With the included SD card, I plugged in the SD into my computer and launched the Imager. The imager allowed me to set the Operating System to Retro Pi instead of Raspbian onto the SD card. With the OS imaged onto the SD, I plugged the SD card back into the Raspberry Pi and rebooted the system and Retro Bi booted up.
+My first milestone was setting up and controlling my LED matrix with an Arduino microcontroller. Using the Adafruit NeoMatrix library for the Arduino IDE, I was able to control each LED specifically as well as create custom light animations. The LED matrix was wired directly into the Arduino without the use of a breadboard to simplify input. One issue I faced in this project was wiring the screen to the Arduino. I went through multiple iterations of wiring but eventually figured out the only the screen input connections were needed while the rest can be ignored.
 
 [![First Milestone](https://res.cloudinary.com/marcomontalbano/image/upload/v1612574117/video_to_markdown/images/youtube--CaCazFBhYKs-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=CaCazFBhYKs "First Milestone"){:target="_blank" rel="noopener"}
