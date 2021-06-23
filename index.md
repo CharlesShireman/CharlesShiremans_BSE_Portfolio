@@ -20,6 +20,6 @@ Not completed
 # First Milestone
   
 
-My first milestone was setting up and controlling my LED matrix with an Arduino microcontroller. Using the Adafruit NeoMatrix library for the Arduino IDE, I was able to control each LED specifically as well as create custom light animations. The LED matrix was wired directly into the Arduino without the use of a breadboard to simplify input. One issue I faced in this project was wiring the screen to the Arduino. I went through multiple iterations of wiring but eventually figured out the only the screen input connections were needed while the rest can be ignored.
+My first milestone was setting up and controlling my LED matrix with an Arduino microcontroller. Using the Adafruit NeoMatrix library for the Arduino IDE, I was able to control each LED specifically as well as create custom light animations. The LED matrix was wired directly into the Arduino without the use of a breadboard to simplify input. One issue I faced in this project was wiring the screen to the Arduino. I went through multiple iterations of wiring but eventually figured out the only the screen input connections were needed while the rest can be ignored. 
 
-[![First Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
+[![Milestone #1](https://res.cloudinary.com/marcomontalbano/image/upload/v1624455381/video_to_markdown/images/youtube--I3flct1JG6U-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=I3flct1JG6U "Milestone #1"){:target="_blank" rel="noopener"}
