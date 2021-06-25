@@ -1,4 +1,4 @@
-﻿# LED Matrix Audio Visualizer
+# LED Matrix Audio Visualizer
 I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an FFT from live sound frequencies taken from a microphone. The entire system is powered through an AC power outlet which allows the user to always display sound data without replacing batteries. The LED matrix also has multiple animation modes that can be changed using a button. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
@@ -27,7 +27,8 @@ My first milestone was setting up and controlling my LED matrix with an Arduino 
 ### Rainbow Wave Code
 
 Using the Adafruit NeoMatrix library, I was able to apply my previous coding skills to my Arduino project. My rainbow wave function uses an int varible, count, to determine the starting color for every one of the function initializations. Since the starting color changed, the for loop then changes every other line color accordingly. Another outside variable, temp, allows for a change in color based on the last line color inside the for loop.
-[![Wave GIF](https://media.giphy.com/media/xeIhGI1KHak52iunz9/giphy.gif)
+
+![Wave GIF](https://github.com/CharlesShireman/CharlesShiremans_BSE_Portfolio/raw/gh-pages/rainbowWave.gif)
 ```
 void rainbowWave() {
   if (count == 0) {
