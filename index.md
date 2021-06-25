@@ -10,19 +10,19 @@ I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an 
 # Final Milestone
 Not completed
 
-[![Final Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
+![Final Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
 
 # Second Milestone
 My second milestone was the completion of my audio visualization code with live sound from my computer. I used the Processing IDE and its sound library to send computed FFT data through the Arduino serial port. The use of the serial port was difficult and needed unconventional data transfer methods. Using a string instead of conventional number data types, my program was able to send large amounts of data, such as a sound array, in one data transfer. The out string was formed in the processing code, sent to the arduino IDE, and put back into its original form with a getVals method.
 
-[![Second Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
+![Second Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
 
 # First Milestone
   
 
 My first milestone was setting up and controlling my LED matrix with an Arduino microcontroller. Using the Adafruit NeoMatrix library for the Arduino IDE, I was able to control each LED specifically as well as create custom light animations. The LED matrix was wired directly into the Arduino without the use of a breadboard to simplify input. One issue I faced in this project was wiring the screen to the Arduino. I went through multiple iterations of wiring but eventually figured out the only the screen input connections were needed while the rest can be ignored. 
 
-[![Milestone #1](https://res.cloudinary.com/marcomontalbano/image/upload/v1624455381/video_to_markdown/images/youtube--I3flct1JG6U-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=I3flct1JG6U "Milestone #1"){:target="_blank" rel="noopener"}
+![Milestone #1](https://res.cloudinary.com/marcomontalbano/image/upload/v1624455381/video_to_markdown/images/youtube--I3flct1JG6U-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=I3flct1JG6U "Milestone #1"){:target="_blank" rel="noopener"}
 
 ### Rainbow Wave Code
 
