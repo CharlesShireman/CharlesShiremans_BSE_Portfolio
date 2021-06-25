@@ -13,7 +13,7 @@ Not completed
 [![Final Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
 
 # Second Milestone
-My second milestone was the completion of my audio visualization code with live sound from my computer. I used the Processing IDE and its sound library to send computed FFT data through the arduino serial port. The use of the serial port was difficult and needed unconventional data transfer methods. Using a string instead of conventional number data types, my program was able to send large amounts of data, such as a sound array, in one data transfer. The out string was formed in the processing code, sent to the arduino IDE, and put back into its original form with a getVals method.
+My second milestone was the completion of my audio visualization code with live sound from my computer. I used the Processing IDE and its sound library to send computed FFT data through the Arduino serial port. The use of the serial port was difficult and needed unconventional data transfer methods. Using a string instead of conventional number data types, my program was able to send large amounts of data, such as a sound array, in one data transfer. The out string was formed in the processing code, sent to the arduino IDE, and put back into its original form with a getVals method.
 
 [![Second Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
 
@@ -26,7 +26,8 @@ My first milestone was setting up and controlling my LED matrix with an Arduino 
 
 ### Rainbow Wave Code
 
-Using the Adafruit NeoMatrix library, I was able to apply my previous coding skills to my arduino project. My rainbow wave function uses an int varible, count, to determine the starting color for every one of the function initializations. Since the starting color changed, the for loop then changes every other line color accordingly. Another outside variable, temp, allows for a change in color based on the last line color inside the for loop.
+Using the Adafruit NeoMatrix library, I was able to apply my previous coding skills to my Arduino project. My rainbow wave function uses an int varible, count, to determine the starting color for every one of the function initializations. Since the starting color changed, the for loop then changes every other line color accordingly. Another outside variable, temp, allows for a change in color based on the last line color inside the for loop.
+[![Wave GIF](https://media.giphy.com/media/xeIhGI1KHak52iunz9/giphy.gif)
 ```
 void rainbowWave() {
   if (count == 0) {
