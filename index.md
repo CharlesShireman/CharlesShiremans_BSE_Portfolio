@@ -8,14 +8,67 @@ I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an 
 ![Headstone Image](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
   
 # Final Milestone
-Not completed
+My final milestone was the implementation of both a microphone and a button to my audio visualizer. To connect my Arduino to the microphone, I first soldered three braided wires to the microphone component and then connected them to a 5V port, a ground port and an analog input port on my Arduino. To connect my button to my Arduino, I connected it to a digital port and a ground port. I then set the digital port to input pull up which pulls up the voltage across the port to the maximum whenever there is no input voltage across the port unlike a regular input port which pulls down the voltage to 0V every time there is no voltage is detected across the port. Since I no longer connected my Arduino to my computer, I needed to create new code using Arduino FFT libraries rather than processing libraries. I used a FixFFT library to easily convert my analog sound into an FFT graph. Using this library is was able to create both a horizontal and vertical FFT graph.
 
 ![Final Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
 
-# Second Milestone
-My second milestone was the completion of my audio visualization code with live sound from my computer. I used the Processing IDE and its sound library to send computed FFT data through the Arduino serial port. The use of the serial port was difficult and needed unconventional data transfer methods. Using a string instead of conventional number data types, my program was able to send large amounts of data, such as a sound array, in one data transfer. The out string was formed in the processing code, sent to the arduino IDE, and put back into its original form with a getVals method.
+<table>
+<tr>
+<th>Json 1</th>
+<th>Markdown</th>
+</tr>
+<tr>
+<td>
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<b><font color="#d35400">button</font></b><font color="#434f54">.</font><font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
-![Second Milestone](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">button</font></b><font color="#434f54">.</font><font color="#d35400">isPressed</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">buttonPress</font> <font color="#434f54">=</font> <font color="#00979c">HIGH</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">buttonPress</font> <font color="#434f54">==</font> <font color="#00979c">HIGH</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;textScroll&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lastMethod</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;audio&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;audio&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lastMethod</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;rainbow&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;rainbow&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lastMethod</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;vert&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">lastMethod</font><font color="#434f54">==</font><font color="#005c5f">&#34;vert&#34;</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lastMethod</font><font color="#434f54">=</font><font color="#005c5f">&#34;textScroll&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">buttonPress</font> <font color="#434f54">=</font> <font color="#00979c">LOW</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;textScroll&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">textDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;audio&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">serialAudioVisual</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">lastMethod</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;rainbow&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">rainbowWave</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">lastMethod</font><font color="#434f54">==</font><font color="#005c5f">&#34;vert&#34;</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">vertAudioVisual</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;&nbsp;<font color="#000000">}</font>
+
+<font color="#000000">matrix</font><font color="#434f54">.</font><font color="#d35400">show</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+</pre>
+</td>
+</tr>
+</table>
+# Second Milestone
+My second milestone was the completion of my audio visualization code with live sound from my computer. I used the Processing IDE and its sound library to send computed FFT data through the Arduino serial port. The use of the serial port was difficult and needed unconventional data transfer methods. Using a string instead of conventional number data types, my program was able to send large amounts of data, such as a sound array, in one data transfer. The output string was formed in the processing code, sent to the arduino IDE, and put back into its original form with a getVals method.
+
+![Second Milestone][![Charlie S Milestone #2](https://res.cloudinary.com/marcomontalbano/image/upload/v1625232831/video_to_markdown/images/youtube--nbdAxFHW8wU-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=nbdAxFHW8wU "Charlie S Milestone #2")
+### Processing Code
+I used the Processing IDE's sound, serial and FFT libraries to take microphone input from my computer, find 32 bands of FFT data and send it to the Arduino IDE.
+```
+
 
 # First Milestone
   
