@@ -5,7 +5,7 @@ I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an 
 |:--:|:--:|:--:|:--:|
 | Charles Shireman | Birch Wathen Lenox School | Computer Science | Incoming Senior
 
-![Headstone Image](https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png)
+![Headstone Image](https://github.com/CharlesShireman/CharlesShiremans_BSE_Portfolio/raw/gh-pages/Attachment0.jpeg)
   
 # Final Milestone
 My final milestone was the implementation of both a microphone and a button to my audio visualizer. To connect my Arduino to the microphone, I first soldered three braided wires to the microphone component and then connected them to a 5V port, a ground port and an analog input port on my Arduino. To connect my button to my Arduino, I connected it to a digital port and a ground port. I then set the digital port to input pull up which pulls up the voltage across the port to the maximum whenever there is no input voltage across the port unlike a regular input port which pulls down the voltage to 0V every time there is no voltage is detected across the port. Since I no longer connected my Arduino to my computer, I needed to create new code using Arduino FFT libraries rather than processing libraries. I used a FixFFT library to easily convert my analog sound into an FFT graph. Using this library is was able to create both a horizontal and vertical FFT graph.
