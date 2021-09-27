@@ -13,7 +13,7 @@ My final milestone was the implementation of both a microphone and a button to m
 [![Final Milestone](https://res.cloudinary.com/marcomontalbano/image/upload/v1632717156/video_to_markdown/images/youtube--eIDTxj1KyaQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=eIDTxj1KyaQ "Charlie S Milestone #3")]
 
 ### Audio Visualization Code
-In a for loop, microphone input, read through the analog read function, is sent to a variable, val, then put into an array, data. An FFT calculation is then performed on this data throught the fix FFT library. These 32 data points are then sent through multiple square root formulas to filter out noise and hum as well as a color function which determines the color of the light bar based on magnitude. A drawLine function through the Adafruit NeoMatrix library is then used to display light bars on the LED matrix.
+In a for loop, microphone input, read through the analog read function, is sent to a variable, val, then put into an array, data. An FFT calculation is then performed on this data throught the FixFFT library. These 32 data points are then sent through multiple square root formulas to filter out noise and hum as well as a color function which determines the color of the light bar based on magnitude. A drawLine function through the Adafruit NeoMatrix library is then used to display light bars on the LED matrix.
 <pre>
 <font color="#00979c">void</font> <font color="#000000">microAudioVisual</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
  &nbsp;<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#000000">i</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> <font color="#000000">i</font> <font color="#434f54">&lt;</font> <font color="#000000">32</font><font color="#000000">;</font> <font color="#000000">i</font><font color="#434f54">++</font><font color="#000000">)</font> <font color="#000000">{</font>
@@ -95,40 +95,43 @@ My first milestone was setting up and controlling my LED matrix with an Arduino 
 Using the Adafruit NeoMatrix library, I was able to apply my previous coding skills to my Arduino project. My rainbow wave function uses an int varible, count, to determine the starting color for every one of the function initializations. Since the starting color changed, the for loop then changes every other line color accordingly. Another outside variable, temp, allows for a change in color based on the last line color inside the for loop.
 
 ![Wave GIF](https://github.com/CharlesShireman/CharlesShiremans_BSE_Portfolio/raw/gh-pages/rainbowWave.gif)
-```
-void rainbowWave() {
-  if (count == 0) {
-    temp = "r";
-    int color = colors[0];
-    count = 1;
-  }
-  else if (count == 1) {
-    temp = "g";
-    int color = colors[1];
-    count = 2;
-  }
-  else if (count == 2) {
-    temp = "b";
-    int color = colors[2];
-    count = 0;
-  }
-  for (int i = 0; i <= matrix.width(); i++) {
-    if (temp == "r") {
-      temp = "g";
-      color = colors[1];
-    }
-    else if (temp == "g") {
-      temp = "b";
-      color = colors[2];
-    }
-    else if (temp == "b") {
-      temp = "r";
-      color = colors[0];
-    }
-    matrix.drawFastVLine(x + i, y, 8, color);
-  }
-}
-```
+<pre>
+<font color="#00979c">void</font> <font color="#000000">rainbowWave</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">count</font> <font color="#434f54">==</font> <font color="#000000">0</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;r&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">count</font> <font color="#434f54">=</font> <font color="#000000">1</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">count</font> <font color="#434f54">==</font> <font color="#000000">1</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;g&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">1</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">count</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">count</font> <font color="#434f54">==</font> <font color="#000000">2</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;b&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">2</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">count</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">i</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> <font color="#000000">i</font> <font color="#434f54">&lt;=</font> <font color="#000000">matrix</font><font color="#434f54">.</font><font color="#000000">width</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#000000">i</font><font color="#434f54">++</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">temp</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;r&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;g&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">1</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">temp</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;g&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;b&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">2</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">temp</font> <font color="#434f54">==</font> <font color="#005c5f">&#34;b&#34;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;r&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font> <font color="#434f54">=</font> <font color="#000000">colors</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">matrix</font><font color="#434f54">.</font><font color="#000000">drawFastVLine</font><font color="#000000">(</font><font color="#000000">x</font> <font color="#434f54">+</font> <font color="#000000">i</font><font color="#434f54">,</font> <font color="#000000">y</font><font color="#434f54">,</font> <font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">color</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">matrix</font><font color="#434f54">.</font><font color="#d35400">show</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>
 #### Adafruit Libraries
 Additional information about the LED control libaries used can be found at:
 
