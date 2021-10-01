@@ -1,3 +1,10 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 # LED Matrix Audio Visualizer
 I used a 8x32 LED matrix, controlled by an Arduino microcontroller, to graph an FFT from live sound frequencies taken from a microphone. The entire system is powered through an AC power outlet which allows the user to always display sound data without replacing batteries. The LED matrix also has multiple animation modes that can be changed using a button. 
 
